@@ -4,6 +4,8 @@ const Dnode = require('dnode')
 const EthQuery = require('eth-query')
 const launchMetamaskUi = require('../../ui')
 const StreamProvider = require('web3-stream-provider')
+
+// gmcdev: this is used by popup-core AND metamask-controller...
 const setupMultiplex = require('./lib/stream-utils.js').setupMultiplex
 
 

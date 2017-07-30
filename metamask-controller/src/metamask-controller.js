@@ -4,10 +4,14 @@ const promiseToCallback = require('promise-to-callback')
 const pipe = require('pump')
 const Dnode = require('dnode')
 const ObservableStore = require('obs-store')
-const EthStore = require('./lib/eth-store')
 const EthQuery = require('eth-query')
 const streamIntoProvider = require('web3-stream-provider/handler')
-const setupMultiplex = require('./lib/stream-utils.js').setupMultiplex
+const debounce = require('debounce')
+
+// gmcdev: this is used by popup-core AND metamask-controller...
+const setupMultiplex = require('./lib/stream-utils.js').setupMultiplex 
+
+const EthStore = require('./lib/eth-store')
 const KeyringController = require('./keyring-controller')
 const NetworkController = require('./controllers/network')
 const PreferencesController = require('./controllers/preferences')
@@ -23,7 +27,7 @@ const ConfigManager = require('./lib/config-manager')
 const nodeify = require('./lib/nodeify')
 const accountImporter = require('./account-import-strategies')
 const getBuyEthUrl = require('./lib/buy-eth-url')
-const debounce = require('debounce')
+
 
 const version = require('../package.json').version
 
