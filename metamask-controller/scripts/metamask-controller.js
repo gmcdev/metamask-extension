@@ -25,7 +25,7 @@ const accountImporter = require('./account-import-strategies')
 const getBuyEthUrl = require('./lib/buy-eth-url')
 const debounce = require('debounce')
 
-const version = require('../manifest.json').version
+const version = require('../package.json').version
 
 module.exports = class MetamaskController extends EventEmitter {
 

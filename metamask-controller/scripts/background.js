@@ -3,13 +3,13 @@ const endOfStream = require('end-of-stream')
 const pipe = require('pump')
 const LocalStorageStore = require('obs-store/lib/localStorage')
 const storeTransform = require('obs-store/lib/transform')
-const ExtensionPlatform = require('./platforms/extension')
+//const ExtensionPlatform = require('./platforms/extension')
 const Migrator = require('./lib/migrator/')
 const migrations = require('./migrations/')
-const PortStream = require('./lib/port-stream.js')
+//const PortStream = require('./lib/port-stream.js')
 const NotificationManager = require('./lib/notification-manager.js')
 const MetamaskController = require('./metamask-controller')
-const extension = require('extensionizer')
+//const extension = require('extensionizer')
 const firstTimeState = require('./first-time-state')
 const isPhish = require('./lib/is-phish')
 
@@ -17,26 +17,69 @@ const STORAGE_KEY = 'metamask-config'
 const METAMASK_DEBUG = 'GULP_METAMASK_DEBUG'
 
 const log = require('loglevel')
-window.log = log
-log.setDefaultLevel(METAMASK_DEBUG ? 'debug' : 'warn')
 
-const platform = new ExtensionPlatform()
+//const platform = new ExtensionPlatform()
 const notificationManager = new NotificationManager()
 global.METAMASK_NOTIFIER = notificationManager
 
-let popupIsOpen = false
+//let popupIsOpen = false
+// exports
+var exports = module.exports = {
+	init: initialize
+}
+
+
+// initialize
+async function initialize() {
+  prepareLog()
+	prepareCrypto()
+	prepareLocalStorage()
+  prepareFetch()
+	const initState = await loadStateFromPersistence()
+	await setupController(initState)
+	console.log('MetaMask initialization complete.')
+}
+
+
+// log
+function prepareLog() {
+  if (nodeVersion) {
+    global.log = log
+  }
+  else {
+    window.log = log
+  }
+  log.setDefaultLevel(METAMASK_DEBUG ? 'debug' : 'warn')
+}
+
+
+// crypto
+function prepareCrypto() {
+	if (nodeVersion) {
+		var WebCrypto = require("node-webcrypto-ossl")
+		global.crypto = new WebCrypto()
+	}
+}
+
 
 // state persistence
-const diskStore = new LocalStorageStore({ storageKey: STORAGE_KEY })
-
-// initialization flow
-initialize().catch(console.error)
-
-async function initialize () {
-  const initState = await loadStateFromPersistence()
-  await setupController(initState)
-  console.log('MetaMask initialization complete.')
+function prepareLocalStorage() {
+	if (typeof localStorage === "undefined" || localStorage === null) {
+		const LocalStorage = require('node-localstorage').LocalStorage
+		global.localStorage = new LocalStorage(__dirname + '/../localstorage')
+	}
+	diskStore = new LocalStorageStore({ storageKey: STORAGE_KEY })
 }
+
+
+// fetch
+function prepareFetch() {
+  if (nodeVersion) {
+    global.fetch = require('node-fetch')
+  }
+}
+
+
 
 //
 // State and Persistence
@@ -60,21 +103,21 @@ function setupController (initState) {
   // MetaMask Controller
   //
 
-  const controller = new MetamaskController({
+  exports.controller = new MetamaskController({
     // User confirmation callbacks:
-    showUnconfirmedMessage: triggerUi,
-    unlockAccountMessage: triggerUi,
-    showUnapprovedTx: triggerUi,
+    //showUnconfirmedMessage: triggerUi,
+    //unlockAccountMessage: triggerUi,
+    //showUnapprovedTx: triggerUi,
     // initial state
     initState,
     // platform specific api
-    platform,
+    //platform,
   })
-  global.metamaskController = controller
+  //global.metamaskController = controller
 
   // setup state persistence
   pipe(
-    controller.store,
+    exports.controller.store,
     storeTransform(versionifyData),
     diskStore
   )
@@ -85,6 +128,7 @@ function setupController (initState) {
     return versionedData
   }
 
+/*
   //
   // connect to other contexts
   //
@@ -138,8 +182,10 @@ function setupController (initState) {
   }
 
   return Promise.resolve()
+  */
 }
 
+/*
 // Listen for new pages and return if blacklisted:
 function checkBlacklist (port) {
   const handler = handleNewPageLoad.bind(null, port)
@@ -176,3 +222,5 @@ extension.runtime.onInstalled.addListener(function (details) {
     extension.tabs.create({url: 'https://metamask.io/#how-it-works'})
   }
 })
+
+*/
