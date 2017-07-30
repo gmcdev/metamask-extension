@@ -4,14 +4,15 @@ const pipe = require('pump')
 const LocalStorageStore = require('obs-store/lib/localStorage')
 const storeTransform = require('obs-store/lib/transform')
 const ExtensionPlatform = require('./platforms/extension')
-const Migrator = require('./lib/migrator/')
-const migrations = require('./migrations/')
-const PortStream = require('./lib/port-stream.js')
 const NotificationManager = require('./lib/notification-manager.js')
-const MetamaskController = require('./metamask-controller')
+const PortStream = require('./lib/port-stream.js')
 const extension = require('extensionizer')
-const firstTimeState = require('./first-time-state')
 const isPhish = require('./lib/is-phish')
+
+const Migrator = require('../metamask-controller/src/lib/migrator/')
+const migrations = require('../metamask-controller/src/migrations/')
+const MetamaskController = require('../metamask-controller/src/metamask-controller')
+const firstTimeState = require('../metamask-controller/src/first-time-state')
 
 const STORAGE_KEY = 'metamask-config'
 const METAMASK_DEBUG = 'GULP_METAMASK_DEBUG'
