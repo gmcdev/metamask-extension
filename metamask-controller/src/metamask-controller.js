@@ -8,9 +8,7 @@ const EthQuery = require('eth-query')
 const streamIntoProvider = require('web3-stream-provider/handler')
 const debounce = require('debounce')
 
-// gmcdev: this is used by popup-core AND metamask-controller...
-const setupMultiplex = require('./lib/stream-utils.js').setupMultiplex 
-
+// metamask-controller
 const EthStore = require('./lib/eth-store')
 const KeyringController = require('./keyring-controller')
 const NetworkController = require('./controllers/network')
@@ -22,11 +20,15 @@ const AddressBookController = require('./controllers/address-book')
 const InfuraController = require('./controllers/infura')
 const MessageManager = require('./lib/message-manager')
 const PersonalMessageManager = require('./lib/personal-message-manager')
-const TransactionController = require('./controllers/transactions')
 const ConfigManager = require('./lib/config-manager')
 const nodeify = require('./lib/nodeify')
 const accountImporter = require('./account-import-strategies')
 const getBuyEthUrl = require('./lib/buy-eth-url')
+const TransactionController = require('./controllers/transactions')
+
+// gmcdev: this is used by popup-core AND metamask-controller...
+const setupMultiplex = require('./lib/stream-utils.js').setupMultiplex 
+
 
 
 const version = require('../package.json').version

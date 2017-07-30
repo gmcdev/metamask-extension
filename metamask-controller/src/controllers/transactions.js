@@ -5,10 +5,15 @@ const clone = require('clone')
 const ObservableStore = require('obs-store')
 const ethUtil = require('ethereumjs-util')
 const pify = require('pify')
+
+// metamask-controller
 const TxProviderUtil = require('../lib/tx-utils')
-const getStack = require('../lib/util').getStack
-const createId = require('../lib/random-id')
 const NonceTracker = require('../lib/nonce-tracker')
+
+// gmcdev: this is used by app.background AND metamask-controller...
+const createId = require('../lib/random-id')
+const getStack = require('../lib/util').getStack
+
 
 module.exports = class TransactionController extends EventEmitter {
   constructor (opts) {
