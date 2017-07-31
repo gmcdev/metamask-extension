@@ -9,10 +9,10 @@ const PortStream = require('./lib/port-stream.js')
 const extension = require('extensionizer')
 const isPhish = require('./lib/is-phish')
 
-const Migrator = require('../metamask-controller/src/lib/migrator/')
-const migrations = require('../metamask-controller/src/migrations/')
-const MetamaskController = require('../metamask-controller/src/metamask-controller')
-const firstTimeState = require('../metamask-controller/src/first-time-state')
+const Migrator = require('../../metamask-controller/src/lib/migrator/')
+const migrations = require('../../metamask-controller/src/migrations/')
+const MetamaskController = require('../../metamask-controller/src/metamask-controller')
+const firstTimeState = require('../../metamask-controller/src/first-time-state')
 
 const STORAGE_KEY = 'metamask-config'
 const METAMASK_DEBUG = 'GULP_METAMASK_DEBUG'

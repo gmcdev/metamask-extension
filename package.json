@@ -53,6 +53,7 @@
     "client-sw-ready-event": "^3.3.0",
     "clone": "^1.0.2",
     "copy-to-clipboard": "^2.0.0",
+    "debounce": "^1.0.2",
     "detect-node": "^2.0.3",
     "dnode": "^1.2.2",
     "end-of-stream": "^1.1.0",
