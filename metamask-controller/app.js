@@ -1,7 +1,7 @@
 const EventEmitter = require('events')
 
 // dependencies
-let main = require('./scripts/background')
+let main = require('./src/main')
 
 // app version
 const packageJson = require('../../package.json')

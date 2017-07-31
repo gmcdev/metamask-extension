@@ -1,5 +1,6 @@
 const assert = require('assert')
 const sinon = require('sinon')
+const async = require('async')
 const InfuraController = require('../../metamask-controller/src/controllers/infura')
 
 describe('infura-controller', function () {
