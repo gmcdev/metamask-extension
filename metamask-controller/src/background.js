@@ -7,11 +7,11 @@ const storeTransform = require('obs-store/lib/transform')
 const Migrator = require('./lib/migrator/')
 const migrations = require('./migrations/')
 //const PortStream = require('./lib/port-stream.js')
-const NotificationManager = require('./lib/notification-manager.js')
+//const NotificationManager = require('./lib/notification-manager.js')
 const MetamaskController = require('./metamask-controller')
 //const extension = require('extensionizer')
 const firstTimeState = require('./first-time-state')
-const isPhish = require('./lib/is-phish')
+//const isPhish = require('./lib/is-phish')
 
 const STORAGE_KEY = 'metamask-config'
 const METAMASK_DEBUG = 'GULP_METAMASK_DEBUG'
@@ -19,8 +19,8 @@ const METAMASK_DEBUG = 'GULP_METAMASK_DEBUG'
 const log = require('loglevel')
 
 //const platform = new ExtensionPlatform()
-const notificationManager = new NotificationManager()
-global.METAMASK_NOTIFIER = notificationManager
+// const notificationManager = new NotificationManager()
+// global.METAMASK_NOTIFIER = notificationManager
 
 //let popupIsOpen = false
 // exports
