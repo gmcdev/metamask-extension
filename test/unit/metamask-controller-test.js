@@ -1,8 +1,8 @@
 const assert = require('assert')
 const sinon = require('sinon')
 const clone = require('clone')
-const MetaMaskController = require('../../app/scripts/metamask-controller')
-const firstTimeState = require('../../app/scripts/first-time-state')
+const MetaMaskController = require('../../metamask-controller/src/metamask-controller')
+const firstTimeState = require('../../metamask-controller/src/first-time-state')
 
 describe('MetaMaskController', function () {
   const noop = () => {}

@@ -10,13 +10,13 @@ const PortStream = require('../../app/scripts/lib/port-stream.js')
 const DbController = require('idb-global')
 
 const SwPlatform = require('../../app/scripts/platforms/sw')
-const MetamaskController = require('../../app/scripts/metamask-controller')
+const MetamaskController = require('../../metamask-controller/src/metamask-controller')
 const extension = {} //require('../../app/scripts/lib/extension')
 
 const storeTransform = require('obs-store/lib/transform')
-const Migrator = require('../../app/scripts/lib/migrator/')
-const migrations = require('../../app/scripts/migrations/')
-const firstTimeState = require('../../app/scripts/first-time-state')
+const Migrator = require('../../metamask-controller/src/lib/migrator/')
+const migrations = require('../../metamask-controller/src/migrations/')
+const firstTimeState = require('../../metamask-controller/src/first-time-state')
 
 const STORAGE_KEY = 'metamask-config'
 // const METAMASK_DEBUG = 'GULP_METAMASK_DEBUG'

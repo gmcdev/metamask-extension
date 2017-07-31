@@ -1,5 +1,5 @@
 const assert = require('assert')
-const MessageManger = require('../../app/scripts/lib/message-manager')
+const MessageManger = require('../../metamask-controller/src/lib/message-manager')
 
 describe('Transaction Manager', function () {
   let messageManager

@@ -1,7 +1,7 @@
 const ObservableStore = require('obs-store')
 const clone = require('clone')
-const ConfigManager = require('../../app/scripts/lib/config-manager')
-const firstTimeState = require('../../app/scripts/first-time-state')
+const ConfigManager = require('../../metamask-controller/src/lib/config-manager')
+const firstTimeState = require('../../metamask-controller/src/first-time-state')
 
 module.exports = function () {
   const store = new ObservableStore(clone(firstTimeState))

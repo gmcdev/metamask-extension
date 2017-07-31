@@ -2,7 +2,7 @@ const assert = require('assert')
 const ethUtil = require('ethereumjs-util')
 const BN = ethUtil.BN
 
-const TxUtils = require('../../app/scripts/lib/tx-utils')
+const TxUtils = require('../../metamask-controller/src/lib/tx-utils')
 
 
 describe('txUtils', function () {

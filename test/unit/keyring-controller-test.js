@@ -1,5 +1,5 @@
 const assert = require('assert')
-const KeyringController = require('../../app/scripts/keyring-controller')
+const KeyringController = require('../../metamask-controller/src/keyring-controller')
 const configManagerGen = require('../lib/mock-config-manager')
 const ethUtil = require('ethereumjs-util')
 const BN = ethUtil.BN

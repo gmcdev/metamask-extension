@@ -1,6 +1,6 @@
 const assert = require('assert')
 const clone = require('clone')
-const Migrator = require('../../app/scripts/lib/migrator/')
+const Migrator = require('../../metamask-controller/src/lib/migrator/')
 const migrations = [
   {
     version: 1,

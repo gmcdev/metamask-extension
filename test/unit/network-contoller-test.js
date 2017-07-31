@@ -1,5 +1,5 @@
 const assert = require('assert')
-const NetworkController = require('../../app/scripts/controllers/network')
+const NetworkController = require('../../metamask-controller/src/controllers/network')
 
 describe('# Network Controller', function () {
   let networkController

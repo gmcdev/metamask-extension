@@ -1,5 +1,5 @@
 const assert = require('assert')
-const NonceTracker = require('../../app/scripts/lib/nonce-tracker')
+const NonceTracker = require('../../metamask-controller/src/lib/nonce-tracker')
 
 describe('Nonce Tracker', function () {
   let nonceTracker, provider, getPendingTransactions, pendingTxs

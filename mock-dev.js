@@ -21,8 +21,8 @@ const configureStore = require('./ui/app/store')
 const actions = require('./ui/app/actions')
 const states = require('./development/states')
 const Selector = require('./development/selector')
-const MetamaskController = require('./app/scripts/metamask-controller')
-const firstTimeState = require('./app/scripts/first-time-state')
+const MetamaskController = require('./metamask-controller/src/metamask-controller')
+const firstTimeState = require('./metamask-controller/src/first-time-state')
 const extension = require('./development/mockExtension')
 const noop = function () {}
 

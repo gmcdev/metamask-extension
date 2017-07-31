@@ -5,7 +5,7 @@ const EthQuery = require('eth-query')
 const ObservableStore = require('obs-store')
 const clone = require('clone')
 const sinon = require('sinon')
-const TransactionController = require('../../app/scripts/controllers/transactions')
+const TransactionController = require('../../metamask-controller/src/controllers/transactions')
 const noop = () => true
 const currentNetworkId = 42
 const otherNetworkId = 36
